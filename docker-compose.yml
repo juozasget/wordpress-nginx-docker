@@ -1,10 +1,10 @@
-version: '3.6'
+version: '3.3'
 services:
   nginx:
     image: nginx:latest
     container_name: nginx
     ports:
-      - '80:80'
+      - '8080:80'
       - '443:443'
     volumes:
       - ./nginx:/etc/nginx/conf.d
@@ -16,25 +16,14 @@ services:
       - wordpress
     restart: always
 
-  mysql:
-    image: mariadb
-    container_name: mysql
-    volumes:
-      - ./mysql:/var/lib/mysql
-    environment:
-      - MYSQL_ROOT_PASSWORD=password
-    restart: always
-
   wordpress:
     image: wordpress:php7.2-fpm
     container_name: wordpress
     volumes:
       - ./wordpress:/var/www/html
     environment:
-      - WORDPRESS_DB_NAME=wordpress
-      - WORDPRESS_TABLE_PREFIX=wp_
-      - WORDPRESS_DB_HOST=mysql
-      - WORDPRESS_DB_PASSWORD=password
-    links:
-      - mysql
+      - WORDPRESS_DB_NAME=example_database
+      - WORDPRESS_DB_HOST=terraform-20181203174335831200000001.c0vto4ri6gid.eu-west-2.rds.amazonaws.com:3306
+      - WORDPRESS_DB_PASSWORD=databasepsw123
+      - WORDPRESS_DB_USER=root
     restart: always
