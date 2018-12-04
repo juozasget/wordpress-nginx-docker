@@ -22,8 +22,8 @@ services:
     volumes:
       - ./wordpress:/var/www/html
     environment:
-      - WORDPRESS_DB_NAME
-      - WORDPRESS_DB_HOST
-      - WORDPRESS_DB_PASSWORD
-      - WORDPRESS_DB_USER
+      - WORDPRESS_DB_NAME=example_database
+      - WORDPRESS_DB_HOST=terraform-20181204122157295700000001.c3drsrfy3jms.eu-west-1.rds.amazonaws.com:3306
+      - WORDPRESS_DB_PASSWORD=databasepsw123
+      - WORDPRESS_DB_USER=root
     restart: always
