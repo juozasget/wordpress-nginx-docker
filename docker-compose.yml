@@ -23,7 +23,7 @@ services:
       - ./wordpress:/var/www/html
     environment:
       - WORDPRESS_DB_NAME=example_database
-      - WORDPRESS_DB_HOST=terraform-20181205071408649700000001.c3drsrfy3jms.eu-west-1.rds.amazonaws.com:3306
+      - WORDPRESS_DB_HOST=terraform-20181205094527125800000001.c3drsrfy3jms.eu-west-1.rds.amazonaws.com:3306
       - WORDPRESS_DB_PASSWORD=databasepsw123
       - WORDPRESS_DB_USER=root
     restart: always
